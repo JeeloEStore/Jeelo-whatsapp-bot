@@ -21,10 +21,10 @@ app.post('/webhook', async (req, res) => {
 
   // Clean phone number - remove spaces, dashes, etc
   let cleanPhone = customerPhone.replace(/\D/g, '');
-// Add country code if not present (for India)
-if (!cleanPhone.startsWith('91')) {
+  // Add country code if not present (for India)
+  if (!cleanPhone.startsWith('91')) {
   cleanPhone = '91' + cleanPhone;
-}
+  }
 
   const response = await fetch(`https://graph.facebook.com/v19.0/${PHONE_NUMBER_ID}/messages`, {
     method: 'POST',
