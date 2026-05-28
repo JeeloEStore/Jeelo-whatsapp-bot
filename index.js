@@ -7,6 +7,7 @@ const PHONE_NUMBER_ID = process.env.PHONE_NUMBER_ID;
 const TEMPLATE_NAME = process.env.TEMPLATE_NAME;
 
 app.post('/webhook', async (req, res) => {
+  console.log('Webhook received!', JSON.stringify(req.body));
   const order = req.body;
 
   const customerPhone = order.billing_address?.phone || order.phone;
